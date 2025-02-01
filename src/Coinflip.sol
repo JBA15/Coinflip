@@ -6,7 +6,7 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 error SeedTooShort();
 
 /// @title Coinflip 10 in a Row
-/// @author Tianchan Dong
+/// @author Tianchan Dong, modified by Jean-Baptiste Astruc
 /// @notice Contract used as part of the course Solidity and Smart Contract development
 contract Coinflip is Ownable{
     
