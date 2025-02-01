@@ -14,7 +14,7 @@ contract Coinflip is Ownable{
 
     constructor() Ownable(msg.sender) {
         // Setting the seed to "It is a good practice to rotate seeds often in gambling".
-        seed = "It is a good practice to rotate seeds often in gambling"
+        seed = "It is a good practice to rotate seeds often in gambling";
     }
 
     /// @notice Checks user input against contract generated guesses
@@ -40,7 +40,7 @@ contract Coinflip is Ownable{
         bytes memory seedBytes = bytes(NewSeed);
 
         // Getting the length of the array
-        uint seedlength = seedBytes.length
+        uint seedlength = seedBytes.length;
 
         // Checking if the seed is less than 10 characters
         if (seedlength < 10){
@@ -48,7 +48,7 @@ contract Coinflip is Ownable{
         }
 
         // Setting the seed variable as the NewSeed
-        seed = NewSeed
+        seed = NewSeed;
     }
 
 // -------------------- helper functions -------------------- //
@@ -56,17 +56,17 @@ contract Coinflip is Ownable{
     /// @return a fixed 10 element array of type uint8 with only 1 or 0 as its elements
     function getFlips() public view returns(uint8[10] memory) {
         // Casting the seed into a bytes array and getting its length
-        bytes memory seedInBytes = bytes(seed)
-        uint seedlength = seedInBytes.length
+        bytes memory stringInBytes = bytes(seed);
+        uint seedlength = stringInBytes.length;
 
         // Initializing an empty fixed array with 10 uint8 elements
-        uint8[10] memory flips
+        uint8[10] memory flips;
 
         // Setting the interval for grabbing characters
         uint interval = seedlength / 10;
 
         // Defining a for loop that iterates 10 times to generate each flip
-        for (){
+        for (uint i = 0; i < 10; i++){
             // Generating a pseudo-random number by hashing together the character and the block timestamp
             uint randomNum = uint(keccak256(abi.encode(stringInBytes[i*interval], block.timestamp)));
             
@@ -79,6 +79,6 @@ contract Coinflip is Ownable{
         }
 
         // Returning the resulting fixed array
-        return flips
+        return flips;
     }
 }
